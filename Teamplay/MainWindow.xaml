@@ -1,0 +1,108 @@
+﻿<Window x:Class="Teamplay.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Teamplay"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="550" Loaded="Window_Loaded" Width="1000" WindowState="Minimized" WindowStyle="None" Background="#FF202020" ResizeMode="NoResize">
+    <WindowChrome.WindowChrome>
+        <WindowChrome/>
+    </WindowChrome.WindowChrome>
+    <Grid>
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="30"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="10"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="10"/>
+
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" Grid.Column="3" Grid.Row="1" HorizontalAlignment="Right" Margin="0,0,0,0">
+            <Button Height="30" Width="30" Background="Transparent" BorderThickness="0" Click="MinClick">
+                <Image Source="/min.png" Width="20"/>
+            </Button>
+
+            <Button Height="30" Width="30" BorderThickness="0" Background="Transparent" Click="ExitClick">
+                <Image Source="/exit.png" Width="20"/>
+            </Button>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Grid.Column="2">
+            <TextBlock Text="Этикет бот" Foreground="White" FontSize="22" Margin="30,0,0,0"/>
+        </StackPanel>
+        <StackPanel Grid.Row="3" Grid.Column="2" Orientation="Horizontal"/>
+
+        <StackPanel Grid.Row="2" Grid.Column="3" Width="450" Height="470" x:Name="imagepanel">
+
+            <Image x:Name="imgs" VerticalAlignment="Center"/>
+
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.Column="3" HorizontalAlignment="Left">
+            <TextBlock Text="точек" VerticalAlignment="Center" Foreground="White" Margin="15,0,15,0"/>
+            <TextBox x:Name="touch" Text="97" Width="50" Margin="0,0,15,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <Button Content="Просмотр" Background="Transparent" Foreground="White" Height="30" Width="163" BorderThickness="2.5" BorderBrush="Gray" Click="viewbtn"/>
+            <Button Content="Печать" Background="Transparent" Foreground="White" Height="30" Width="163" BorderThickness="2.5" BorderBrush="Gray" Click="printbtn"/>
+        </StackPanel>
+        <StackPanel Grid.Row="3" Grid.Column="2" Orientation="Horizontal">
+            <TextBlock Text="Ширина" Foreground="White" VerticalAlignment="Center" Margin="24,0,0,0"/>
+            <TextBox x:Name ="width" Text="300" Width="50" Margin="24,0,0,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
+            <TextBlock Text="Высота" Foreground="White" VerticalAlignment="Center" Margin="24,0,0,0"/>
+            <TextBox x:Name ="height" Text="300" Width="50" Margin="24,0,0,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <TextBlock Text="Формат" Foreground="White" VerticalAlignment="Center" Margin="24,0,0,0"/>
+            <ComboBox Background="Transparent" BorderBrush="Transparent" BorderThickness="0" Width="90" Margin="24,0,0,0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" x:Name="combo" SelectedIndex="1">
+                <TextBlock Text="BMP"/>
+                <TextBlock Text="PNG"/>
+                <TextBlock Text="JPG"/>
+                <TextBlock Text="GIF"/>
+                <TextBlock Text="EXIF"/>
+                <TextBlock Text="TIFF"/>
+            </ComboBox>
+        </StackPanel>
+        <StackPanel Grid.Row="2" Grid.Column="2">
+            <Canvas x:Name="canvas" Width="440" Height="415" Margin="0,10,0,0" MouseEnter="canvas_MouseEnter" Background="White">
+                
+            </Canvas>
+            <StackPanel Margin="20,5,20,0" Orientation="Horizontal">
+                <Label Content="Ширина. эл" Foreground="white"/>
+                <TextBox x:Name="widthel" TextChanged="control_TextChanged" Foreground="White" Width="100" Background="Transparent" BorderThickness="0,0,0,1" VerticalAlignment="Center"/>
+                <Label Content="Высота. эл" Foreground="white"/>
+                <TextBox x:Name="heightel" TextChanged="control_TextChanged"  Foreground="White" Width="100" Background="Transparent" BorderThickness="0,0,0,1" VerticalAlignment="Center"/>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel Grid.Column="1" Grid.Row="2" x:Name="panelbutton">
+            <Border CornerRadius="10" Background="white" Margin="0,10,0,10">
+                <Button Background="Transparent" BorderThickness="0" Padding="5" >
+                    <Image Source="/free-icon-text-929666.png"/>
+                </Button>
+            </Border>
+            <Border CornerRadius="10" Background="white" Margin="0,0,0,10">
+                <Button Background="Transparent" BorderThickness="0" Padding="5">
+                    <Image Source="/free-icon-square-with-round-corners-2276.png"/>
+                </Button>
+            </Border>
+            <Border CornerRadius="10" Background="white" Margin="0,0,0,10">
+                <Button Background="Transparent" BorderThickness="0" Padding="5">
+                    <Image Source="/free-icon-vector-637296.png"/>
+                </Button>
+            </Border>
+            <Border CornerRadius="10" Background="white" Margin="0,0,0,10">
+                <Button Background="Transparent" BorderThickness="0" Padding="5">
+                    <Image Source="/free-icon-image-gallery-3342137.png"/>
+                </Button>
+            </Border>
+            <Border CornerRadius="10" Background="white" Margin="0,0,0,10">
+                <Button Background="Transparent" BorderThickness="0" Padding="5">
+                    <Image Source="/free-icon-barcode-4652089.png"/>
+                </Button>
+            </Border>
+        </StackPanel>
+    </Grid>
+</Window>
